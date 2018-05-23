@@ -24,6 +24,7 @@ class App extends Component {
     // find the text field via React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
     const phone = ReactDOM.findDOMNode(this.refs.phoneNumber).value.trim();
+    const link = ReactDOM.findDOMNode(this.refs.imgLink).value.trim();
 
 
     if (text == "") return;
@@ -32,6 +33,7 @@ class App extends Component {
     Messages.insert({
       text,
       phone,
+      link,
       num_likes: 0,
       user_likes: [],
       updatedAt: new Date(), // current time
@@ -42,6 +44,9 @@ class App extends Component {
     // clear field
     ReactDOM.findDOMNode(this.refs.textInput).value = "";
     ReactDOM.findDOMNode(this.refs.phoneNumber).value = "";
+    ReactDOM.findDOMNode(this.refs.imgLink).value = "";
+
+
     this.setState({
       answerSubmitted: true
     });
@@ -108,7 +113,7 @@ class App extends Component {
                 Hi, {this.state.currentUser}!
                 <br />
                 <br />
-                <strong>Step 1:</strong>: Use the following form to create a profile!
+                <strong>Step 1</strong>: Use the following form to create a profile!
                 <form
                   className="new-message"
                   onSubmit={this.handleSubmitMessage.bind(this)}
@@ -116,12 +121,17 @@ class App extends Component {
                   <input
                     type="text"
                     ref="textInput"
-                    placeholder="Type to add a new idea"
+                    placeholder="Type to add a brief description"
                   />
                   <input
                     type="text"
                     ref="phoneNumber"
-                    placeholder="Type you phone number"
+                    placeholder="Type your phone number"
+                  />
+                  <input
+                    type="text"
+                    ref="imgLink"
+                    placeholder="Copy and paste a link to an image"
                   />
                   <input
                     className="submit-button"

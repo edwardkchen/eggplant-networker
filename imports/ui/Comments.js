@@ -64,7 +64,6 @@ export default class Message extends Component {
             {this.props.message.num_likes} &#9650;
           </button>
         )}
-        
         <span className="text">
           <strong>{this.props.message.owner}</strong>({this.props.message.phone}):&nbsp;
           {this.props.message.text}<br></br>
@@ -79,3 +78,4 @@ export default class Message extends Component {
     );
   }
 }
+
