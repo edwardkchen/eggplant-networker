@@ -64,7 +64,6 @@ export default class Message extends Component {
             {this.props.message.num_likes} &#9650;
           </button>
         )}
-        
         <span className="text">
           <strong>{this.props.message.owner}</strong>({this.props.message.phone}):&nbsp;
           {this.props.message.text}<br></br>
@@ -75,6 +74,16 @@ export default class Message extends Component {
             height='500px'
             src={this.props.message.link}></img>
         </span>
+        
+        <form method="post" id="commentForm">
+          <strong>Post your comment below:</strong><br/>
+          <textarea name="comment" id="comment" rows="3" required="required"></textarea>
+          <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID"/><br/>
+          <input name="submit" type="submit" value="Submit Comment"/>
+        </form>
+
+
+
       </li>
     );
   }

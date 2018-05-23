@@ -26,7 +26,6 @@ class App extends Component {
     const phone = ReactDOM.findDOMNode(this.refs.phoneNumber).value.trim();
     const link = ReactDOM.findDOMNode(this.refs.imgLink).value.trim();
 
-
     if (text == "") return;
 
     // insert message to database
@@ -45,6 +44,7 @@ class App extends Component {
     ReactDOM.findDOMNode(this.refs.textInput).value = "";
     ReactDOM.findDOMNode(this.refs.phoneNumber).value = "";
     ReactDOM.findDOMNode(this.refs.imgLink).value = "";
+    
 
 
     this.setState({
