@@ -65,7 +65,7 @@ export default class Message extends Component {
           </button>
         )}
         <span className="text">
-          <strong>{this.props.message.owner}</strong>:&nbsp;
+          <strong>{this.props.message.owner}</strong>({this.props.message.phone}):&nbsp;
           {this.props.message.text}
         </span>
       </li>

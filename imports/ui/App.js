@@ -23,21 +23,25 @@ class App extends Component {
 
     // find the text field via React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+    const phone = ReactDOM.findDOMNode(this.refs.phoneNumber).value.trim();
+
 
     if (text == "") return;
 
     // insert message to database
     Messages.insert({
       text,
+      phone,
       num_likes: 0,
       user_likes: [],
       updatedAt: new Date(), // current time
       createdAt: new Date(), // current time
       owner: this.state.currentUser
-    });
+    } );
 
     // clear field
     ReactDOM.findDOMNode(this.refs.textInput).value = "";
+    ReactDOM.findDOMNode(this.refs.phoneNumber).value = "";
     this.setState({
       answerSubmitted: true
     });
@@ -93,7 +97,7 @@ class App extends Component {
       <div className="app-root">
         <div className="container">
           <header>
-            <h1>Welcome to the Creative Yik Yak!</h1>
+            <h1>Welcome to Eggplant-Networker!</h1>
             <h3>
               Wow! {this.props.userCount}
               {this.props.userCount > 1 ? " users " : " user "}
@@ -104,9 +108,7 @@ class App extends Component {
                 Hi, {this.state.currentUser}!
                 <br />
                 <br />
-                <strong>Prompt</strong>: Prof. Dow will be having his first
-                child, a baby girl, in the coming weeks. Let's brainstorm names
-                for her!
+                <strong>Step 1:</strong>: Use the following form to create a profile!
                 <form
                   className="new-message"
                   onSubmit={this.handleSubmitMessage.bind(this)}
@@ -115,6 +117,16 @@ class App extends Component {
                     type="text"
                     ref="textInput"
                     placeholder="Type to add a new idea"
+                  />
+                  <input
+                    type="text"
+                    ref="phoneNumber"
+                    placeholder="Type you phone number"
+                  />
+                  <input
+                    className="submit-button"
+                    type="submit"
+                    value="Submit!!"
                   />
                 </form>
               </div>
